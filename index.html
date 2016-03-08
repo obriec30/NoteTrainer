@@ -1,0 +1,260 @@
+<html>
+<head>
+	<title>Note Trainer</title>
+</head>
+
+<body>
+	<button onClick="scaleMinor('A')">A</button></br>
+	<button onClick="scalePentaMin('B')">B</button></br>
+	<button onClick="scaleMajor('C')">C</button></br>
+	<button onClick="scalePentaMin('D')">D</button></br>
+	<button onClick="scalePentaMin('E')">E</button></br>
+	<button onClick="scalePentaMin('F')">F</button></br>
+	<button onClick="scalePentaMin('G')">G</button></br>
+	
+</body>
+
+<script>
+	
+	// All the notes starting at A 
+	// Sharp and flats lined up for comparioson of answers 
+	var notesSharp = ["A","A#","B","C","C#","D","D#","E","F","F#","G","G#"];
+	var notesFlat = ["A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab"];
+	
+	// Strings on guitatr and the note values on each fret, including open 
+	var EString = ["E","F","F#","G","G#","A","A#","B","C","C#","D","D#","E","F","F#","G","G#","A","A#","B","C","C#","D","D#","E"];
+	var AString = ["A","A#","B","C","C#","D","D#","E","F","F#","G","G#","A","A#","B","C","C#","D","D#","E","F","F#","G","G#"];
+	var DString = ["D","D#","E","F","F#","G","G#","A","A#","B","C","C#","D","D#","E","F","F#","G","G#","A","A#","B","C","C#","D"];
+	var GString = ["G","G#","A","A#","B","C","C#","D","D#","E","F","F#","G","G#","A","A#","B","C","C#","D","D#","E","F","F#","G"];
+	var BString = ["B","C","C#","D","D#","E","F","F#","G","G#","A","A#","B","C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+	var eString = ["E","F","F#","G","G#","A","A#","B","C","C#","D","D#","E","F","F#","G","G#","A","A#","B","C","C#","D","D#","E"];
+	
+	var guitar = [eString,BString,GString,DString,AString,EString];
+	
+	
+	// maybe make these take a second parameter for doing the second octave 
+	function scalePentaMin(root)
+	{
+		var scale =[];
+		var index = notesSharp.indexOf(root);
+		//root 
+		scale.push(notesFlat[index]);
+		// second note 
+		index = index + 3; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]);
+		
+		//3rd note 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]);
+		
+		// 4th note 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]);
+		
+		// 5th note 
+		index = index + 3; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]);
+		// ocatve
+		index = index + 2; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]);
+		
+		scale.push(scale[1]);
+		scale.push(scale[2]);
+		scale.push(scale[3]);
+		scale.push(scale[4]);
+		scale.push(scale[0]); // finish 2 octaves 
+		
+		//return scale;
+
+		printScale(scale, root + " Minor pentatonic scale")
+	}
+
+	
+	function scaleMajor(root)
+	{
+		var scale = [];
+		var index = notesSharp.indexOf(root);
+		//root 
+		scale.push(notesFlat[index]); 
+		// 2nd 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 	
+		// 3rd 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		// 4th 
+		index = index + 1; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		// 5th 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 11;
+		scale.push(notesFlat[index]); 
+		//6th 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		//7th 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		//octave 
+		index = index + 1; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		
+		// 2 octaves 
+		scale.push(scale[1]);
+		scale.push(scale[2]);
+		scale.push(scale[3]);
+		scale.push(scale[4]);
+		scale.push(scale[5]);
+		scale.push(scale[6]);
+		scale.push(scale[0]);	
+		
+		//return scale;
+		printScale(scale, root +" Major Scale");
+	}
+	
+	
+	function scaleMinor(root)
+	{
+		var scale = [];
+		var index = notesSharp.indexOf(root);
+		//root 
+		scale.push(notesFlat[index]); 
+		// 2nd 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 	
+		// 3rd 
+		index = index + 1; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		// 4th 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		// 5th 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 11;
+		scale.push(notesFlat[index]); 
+		//6th 
+		index = index + 1; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		//7th 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		//octave 
+		index = index + 1; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		
+		// 2 octaves 
+		scale.push(scale[1]);
+		scale.push(scale[2]);
+		scale.push(scale[3]);
+		scale.push(scale[4]);
+		scale.push(scale[5]);
+		scale.push(scale[6]);
+		scale.push(scale[0]);	
+		
+		//return scale;
+		printScale(scale, root +" Minor Scale");
+	}
+	
+	function scaleHarmonicMinor(root)
+	{
+		var scale = [];
+		var index = notesSharp.indexOf(root);
+		//root 
+		scale.push(notesFlat[index]); 
+		// 2nd 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 	
+		// 3rd 
+		index = index + 1; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		// 4th 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		// 5th 
+		index = index + 2; 
+		if(index > 11)
+			index = index % 11;
+		scale.push(notesFlat[index]); 
+		//6th 
+		index = index + 1; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		//7th 
+		index = index + 3; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		//octave 
+		index = index + 1; 
+		if(index > 11)
+			index = index % 12;
+		scale.push(notesFlat[index]); 
+		
+		// 2 octaves 
+		scale.push(scale[1]);
+		scale.push(scale[2]);
+		scale.push(scale[3]);
+		scale.push(scale[4]);
+		scale.push(scale[5]);
+		scale.push(scale[6]);
+		scale.push(scale[0]);	
+		
+		//return scale;
+		printScale(scale, root +" Minor Scale");
+	}
+	
+	function printScale(scale, name)
+	{
+		console.log(name);
+		var x;
+		for(x = 0; x < scale.length; x++)
+		{
+			console.log("index " + x + " : " + scale[x]);
+		}
+	}	
+	
+</script>
+</html>
