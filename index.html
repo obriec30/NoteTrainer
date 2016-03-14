@@ -9,12 +9,24 @@
 	<button onClick="scaleMinor('A')">A</button></br>
 	<button onClick="scalePentaMin('B',true)">B</button></br>
 	<button onClick="scaleMajor('C',true)">C</button></br>
-	<button onClick="scalePentaMin('D',true)">D</button></br>
-	<button onClick="scalePentaMin('E',true)">E</button></br>
-	<button onClick="scalePentaMin('F',true)">F</button></br>
+	<button onClick="ppos()">D</button></br>
+	<button onClick="posOnString(1,'A')">E</button></br>
+	<button onClick="threeNotesPerString('A',false)">F</button></br>
 	<button onClick="chordScale('G',true)">G</button></br>
-	<button onClick="makeGuitar(['A','E','A','D','G','B','E'])">Make Guitar</button></br>
+	<button onClick="makeGuitar(['E','A','D','G','B','E'])">Make Guitar</button></br>
 	
 </body>
-
+<script>
+	function ppos()
+	{
+		stdGuitar();
+		var root = "A";
+		var maj = false; 
+		pentaPos(root,1,maj);
+		pentaPos(root,2,maj);
+		pentaPos(root,3,maj);
+		pentaPos(root,4,maj);
+		pentaPos(root,5,maj);
+	}
+</script>
 </html>

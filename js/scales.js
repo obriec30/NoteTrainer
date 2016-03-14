@@ -308,3 +308,80 @@ var DEBUG = true;
 			
 		}
 	}
+	
+	
+	
+	/** Returns aray with notes on the fretboard in the specified position in major or minor
+	*	@param
+	*		root : string : root note of the scale 
+	*		pos : int:  position number
+	*		maj : bool : major or minor 
+	**/
+	function pentaPos(root,pos,maj)
+	{
+		var scale;
+		if(maj)
+		{
+			
+		}
+		else 
+		{
+			scale = scalePentaMin(root, false);
+		}
+		
+		var index = pos -1;
+		
+		var positions = [];
+		
+		for(var x = 1; x <= guitar.length; x++)
+		{
+			var one = posOnString(x, scale[index]);
+			index = (index + 1) % scale.length;
+			var two = posOnString(x, scale[index]);
+			index = (index + 1) % (scale.length - 1);
+			var notes = [one,two];
+			positions.push(notes);
+		}
+		
+		console.log("Strings and scales");
+		for(var a = 0; a < scale.length ; a ++)
+		{
+			console.log(positions[a]);
+		}
+	}
+	
+	
+	/** Returns desired scale as 3 notes per string 
+	*	@Params
+	*	root : string : root note of scale 
+	*	maj : boolean : major or minor 
+	*/
+	function threeNotesPerString(root, maj)
+	{
+		var scale;
+		if(maj)
+		{
+			scale = scaleMajor(root, false);
+		}
+		else 
+		{
+			scale = scaleMinor(root, false);
+		}
+		
+		var tnps = [];
+		var index= 0; 
+		for(var x = 1 ; x <= guitar.length;  x ++)
+		{
+			var one = posOnString(x, scale[index]);
+			index = (index +1) % (scale.length -1);
+			var two = posOnString(x, scale[index]);
+			index = (index +1) % (scale.length -1);
+			var three = posOnString(x, scale[index]);
+			index = (index +1) % (scale.length -1);
+			tnps.push([one,two,three]);
+		}
+		for(var x =0; x < tnps.length; x++)
+		{
+			console.log(tnps[x]);
+		}
+	}
