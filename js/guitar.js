@@ -41,7 +41,7 @@ function stdGuitar()
 			
 		}
 		if(DEBUG)
-			console.log(string.toString());
+			//console.log(string.toString());
 		guitar.push(string);
 	}
 }
@@ -56,6 +56,6 @@ function posOnString(stringnum, note)
 {
 
 	if(DEBUG)
-		console.log(guitar[stringnum - 1].indexOf(note));
+		//console.log(guitar[stringnum - 1].indexOf(note));
 	return guitar[stringnum - 1].indexOf(note);
 }

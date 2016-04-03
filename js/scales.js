@@ -309,8 +309,6 @@ var DEBUG = true;
 		}
 	}
 	
-	
-	
 	/** Returns aray with notes on the fretboard in the specified position in major or minor
 	*	@param
 	*		root : string : root note of the scale 
@@ -349,7 +347,6 @@ var DEBUG = true;
 			console.log(positions[a]);
 		}
 	}
-	
 	
 	/** Returns desired scale as 3 notes per string 
 	*	@Params

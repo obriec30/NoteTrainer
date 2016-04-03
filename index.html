@@ -3,6 +3,7 @@
 	<title>Note Trainer</title>
 	<script type="text/javascript" src="js/scales.js"></script>
 	<script type="text/javascript" src="js/guitar.js"></script>
+	<script type="text/javascript" src="js/quiz.js"></script>
 </head>
 
 <body>
@@ -14,19 +15,20 @@
 	<button onClick="threeNotesPerString('A',false)">F</button></br>
 	<button onClick="chordScale('G',true)">G</button></br>
 	<button onClick="makeGuitar(['E','A','D','G','B','E'])">Make Guitar</button></br>
+	<div id="mydiv"></div>
 	
 </body>
 <script>
 	function ppos()
 	{
 		stdGuitar();
-		var root = "A";
-		var maj = false; 
-		pentaPos(root,1,maj);
-		pentaPos(root,2,maj);
-		pentaPos(root,3,maj);
-		pentaPos(root,4,maj);
-		pentaPos(root,5,maj);
+		var derp = quizNotesOnString(10);
+		var quiz = document.createElement('quiz');
+		quiz.innerHTML = derp;
+		document.getElementById('mydiv').appendChild(quiz);
+			
+				document.getElementById("submitnos").addEventListener("click", function() {
+		correctNOS(10);}, false);
 	}
 </script>
 </html>
